@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Módulo de Encuestas Interactivas.
+ */
+
+/**
+ * Implements hook_form_alter() to add Bootstrap and custom styles to forms.
+ */
+function encuestas_interactivas_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Add Bootstrap and custom styles library to all forms.
+  $form['#attached']['library'][] = 'encuestas_interactivas/bootstrap';
+  $form['#attached']['library'][] = 'encuestas_interactivas/styles';
+}

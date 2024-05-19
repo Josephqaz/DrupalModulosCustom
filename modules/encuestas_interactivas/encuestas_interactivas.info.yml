@@ -1,0 +1,7 @@
+name: 'Encuestas Interactivas'
+type: module
+description: 'Permite a los usuarios crear y participar en encuestas interactivas.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:views

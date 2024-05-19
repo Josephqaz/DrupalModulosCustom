@@ -1,0 +1,13 @@
+bootstrap:
+  version: 4.x
+  css:
+    theme:
+      https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css: {}
+  js:
+    https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js: {}
+
+styles:
+  version: 1.x
+  css:
+    theme:
+      modules/encuestas_interactivas/css/encuestas_interactivas.css: {}

@@ -1,0 +1,19 @@
+encuestas_interactivas.form:
+  path: '/encuestas-interactivas/nueva'
+  defaults:
+    _form: 'Drupal\encuestas_interactivas\Form\EncuestaForm'
+    _title: 'Nueva Encuesta'
+  requirements:
+    _permission: 'administer site configuration'
+
+encuestas_interactivas.participar:
+  path: '/encuestas-interactivas/participar/{encuesta}'
+  defaults:
+    _form: 'Drupal\encuestas_interactivas\Form\ParticiparForm'
+    _title: 'Participar en Encuesta'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      encuesta:
+        type: 'entity:encuesta'
