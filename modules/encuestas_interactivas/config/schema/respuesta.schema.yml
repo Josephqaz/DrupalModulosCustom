@@ -1,0 +1,14 @@
+respuesta:
+  type: entity
+  label: 'Respuesta'
+  description: 'Store respuestas for encuestas'
+  fields:
+    id:
+      type: integer
+      label: 'ID'
+    encuesta_id:
+      type: integer
+      label: 'Encuesta ID'
+    respuesta:
+      type: string
+      label: 'Respuesta'

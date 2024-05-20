@@ -1,0 +1,6 @@
+<h2>Resultados de la Encuesta: {{ encuesta_title }}</h2>
+<ul>
+  {% for respuesta, count in result_count %}
+    <li>{{ respuesta }}: {{ count }} votos</li>
+  {% endfor %}
+</ul>

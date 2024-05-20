@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - encuestas_interactivas
+id: respuesta
+label: 'Respuesta'
+label_singular: 'respuesta'
+label_plural: 'respuestas'
+label_count:
+  singular: '@count respuesta'
+  plural: '@count respuestas'
+entity_class: 'Drupal\encuestas_interactivas\Entity\Respuesta'
+base_table: respuestas
+translatable: false
+admin_permission: 'administer respuestas'
+entity_keys:
+  id: id
+  label: respuesta
+links:
+  canonical: '/respuesta/{respuesta}'
+  edit-form: '/respuesta/{respuesta}/edit'
+  delete-form: '/respuesta/{respuesta}/delete'
+  collection: '/admin/content/respuestas'
+field_ui_base_route: entity.respuesta.collection

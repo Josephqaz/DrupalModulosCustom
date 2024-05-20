@@ -30,3 +30,7 @@
 .form-group {
   margin-bottom: 20px;
 }
+
+.form-check-label {
+  margin-left: 1.25rem; /* Asegura que las etiquetas estén alineadas correctamente */
+}

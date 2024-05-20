@@ -11,5 +11,20 @@
 function encuestas_interactivas_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   // Add Bootstrap and custom styles library to all forms.
   $form['#attached']['library'][] = 'encuestas_interactivas/bootstrap';
-  $form['#attached']['library'][] = 'encuestas_interactivas/styles';
+  $form['#attached']['library'][] = 'encuestas_interactivas/encuestas_interactivas';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function encuestas_interactivas_theme($existing, $type, $theme, $path) {
+  return [
+    'encuestas_interactivas_resultados' => [
+      'variables' => [
+        'encuesta_title' => NULL,
+        'result_count' => [],
+      ],
+      'template' => 'encuestas-interactivas-resultados',
+    ],
+  ];
 }

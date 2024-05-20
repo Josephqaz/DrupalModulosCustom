@@ -5,6 +5,7 @@ namespace Drupal\encuestas_interactivas\Entity;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Entity\ContentEntityInterface;
 
 /**
  * Defines the Respuesta entity.
@@ -15,11 +16,14 @@ use Drupal\Core\Field\BaseFieldDefinition;
  *   base_table = "respuestas",
  *   entity_keys = {
  *     "id" = "id",
- *     "label" = "encuesta_id",
+ *     "label" = "respuesta",
  *   },
+ *   handlers = {
+ *     "storage" = "Drupal\Core\Entity\Sql\SqlContentEntityStorage",
+ *   }
  * )
  */
-class Respuesta extends ContentEntityBase {
+class Respuesta extends ContentEntityBase implements ContentEntityInterface {
 
   /**
    * {@inheritdoc}
@@ -27,9 +31,14 @@ class Respuesta extends ContentEntityBase {
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
     $fields = parent::baseFieldDefinitions($entity_type);
 
-    $fields['encuesta_id'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Encuesta'))
-      ->setSetting('target_type', 'encuesta')
+    $fields['id'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('ID'))
+      ->setReadOnly(TRUE)
+      ->setSetting('unsigned', TRUE)
+      ->setSetting('auto_increment', TRUE);
+
+    $fields['encuesta_id'] = BaseFieldDefinition::create('integer')
+      ->setLabel(t('Encuesta ID'))
       ->setRequired(TRUE);
 
     $fields['respuesta'] = BaseFieldDefinition::create('string')

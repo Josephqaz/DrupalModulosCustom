@@ -53,6 +53,10 @@ class ParticiparForm extends FormBase {
       return [];
     }
 
+    // Attach the necessary libraries
+    $form['#attached']['library'][] = 'encuestas_interactivas/bootstrap';
+    $form['#attached']['library'][] = 'encuestas_interactivas/encuestas_interactivas';
+
     $form['#attributes']['class'][] = 'form-horizontal'; // Clase de Bootstrap para formularios horizontales
 
     $form['encuesta_title'] = [
@@ -66,22 +70,13 @@ class ParticiparForm extends FormBase {
 
     // Contenedor para las opciones de la encuesta
     $form['options_fieldset'] = [
-      '#type' => 'fieldset',
+      '#type' => 'radios',
       '#title' => $this->t('Options'),
+      '#options' => array_combine($options, $options),
       '#prefix' => '<div id="options-wrapper" class="mt-3">',
       '#suffix' => '</div>',
+      '#attributes' => ['class' => ['form-check']],
     ];
-
-    foreach ($options as $index => $option) {
-      $form['options_fieldset']['option_' . $index] = [
-        '#type' => 'radio',
-        '#title' => $option,
-        '#return_value' => $option,
-        '#attributes' => ['class' => ['form-check-input']],
-        '#prefix' => '<div class="form-check mt-2">', // Añadimos mt-2 para margen superior
-        '#suffix' => '</div>',
-      ];
-    }
 
     // Contenedor para el botón de votación
     $form['submit_container'] = [
@@ -109,19 +104,28 @@ class ParticiparForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    $encuesta_id = $form_state->getBuildInfo()['args'][0]->id();
-    $respuesta = $form_state->getValue('options');
+    try {
+      $encuesta_id = $form_state->getBuildInfo()['args'][0]->id();
+      $respuesta = $form_state->getValue('options_fieldset');
 
-    if ($respuesta) {
-      $respuesta_entity = $this->entityTypeManager->getStorage('respuesta')->create([
-        'encuesta_id' => $encuesta_id,
-        'respuesta' => $respuesta,
-      ]);
-      $respuesta_entity->save();
+      if ($respuesta) {
+        $storage = $this->entityTypeManager->getStorage('respuesta');
+        if ($storage) {
+          $respuesta_entity = $storage->create([
+            'encuesta_id' => $encuesta_id,
+            'respuesta' => $respuesta,
+          ]);
+          $respuesta_entity->save();
 
-      \Drupal::messenger()->addMessage($this->t('Thank you for your vote.'));
-    } else {
-      \Drupal::messenger()->addMessage($this->t('Please select an option.'), 'error');
+          \Drupal::messenger()->addMessage($this->t('Thank you for your vote.'));
+        } else {
+          \Drupal::messenger()->addMessage($this->t('Error: could not find storage for respuestas.'), 'error');
+        }
+      } else {
+        \Drupal::messenger()->addMessage($this->t('Please select an option.'), 'error');
+      }
+    } catch (\Exception $e) {
+      \Drupal::messenger()->addMessage($this->t('An error occurred: @message', ['@message' => $e->getMessage()]), 'error');
     }
   }
 

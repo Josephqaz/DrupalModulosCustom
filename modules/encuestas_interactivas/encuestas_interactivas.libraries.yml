@@ -6,8 +6,9 @@ bootstrap:
   js:
     https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js: {}
 
-styles:
+encuestas_interactivas:
   version: 1.x
   css:
     theme:
-      modules/encuestas_interactivas/css/encuestas_interactivas.css: {}
+      css/encuestas_interactivas.css: {}
+

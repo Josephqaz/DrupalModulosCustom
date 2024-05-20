@@ -17,3 +17,60 @@ encuestas_interactivas.participar:
     parameters:
       encuesta:
         type: 'entity:encuesta'
+
+entity.respuesta.collection:
+  path: '/admin/content/respuestas'
+  defaults:
+    _entity_list: 'respuesta'
+    _title: 'Respuestas'
+  requirements:
+    _permission: 'administer respuestas'
+  options:
+    _admin_route: TRUE
+
+entity.respuesta.add_form:
+  path: '/respuesta/add'
+  defaults:
+    _entity_form: 'respuesta.add'
+    _title: 'Añadir Respuesta'
+  requirements:
+    _permission: 'administer respuestas'
+  options:
+    _admin_route: TRUE
+
+entity.respuesta.edit_form:
+  path: '/respuesta/{respuesta}/edit'
+  defaults:
+    _entity_form: 'respuesta.edit'
+    _title: 'Editar Respuesta'
+  requirements:
+    _permission: 'administer respuestas'
+  options:
+    _admin_route: TRUE
+
+entity.respuesta.delete_form:
+  path: '/respuesta/{respuesta}/delete'
+  defaults:
+    _entity_form: 'respuesta.delete'
+    _title: 'Eliminar Respuesta'
+  requirements:
+    _permission: 'administer respuestas'
+  options:
+    _admin_route: TRUE
+
+entity.respuesta.canonical:
+  path: '/respuesta/{respuesta}'
+  defaults:
+    _entity_view: 'respuesta.full'
+    _title_callback: '\Drupal\encuestas_interactivas\Controller\EncuestaController::title'
+  requirements:
+    _permission: 'access content'
+
+encuestas_interactivas.resultados:
+  path: '/encuestas/resultados/{encuesta}'
+  defaults:
+    _controller: '\Drupal\encuestas_interactivas\Controller\EncuestaController::resultados'
+    _title: 'Resultados de la Encuesta'
+  requirements:
+    _permission: 'access content'
+
