@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'drupal/legacy-project',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '3a13640caf0efd813e12ac102ddde8d0ffd6696b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -388,6 +388,15 @@
                 0 => '10.2.6',
             ),
         ),
+        'drupal/ctools' => array(
+            'pretty_version' => '4.0.4',
+            'version' => '4.0.4.0',
+            'reference' => '4.0.4',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../modules/contrib/ctools',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/devel' => array(
             'pretty_version' => '5.2.1',
             'version' => '5.2.1.0',
@@ -407,9 +416,9 @@
             'dev_requirement' => false,
         ),
         'drupal/legacy-project' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '3a13640caf0efd813e12ac102ddde8d0ffd6696b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -1,0 +1,8 @@
+name: 'Testimonios de Usuarios'
+type: module
+description: 'Permite a los usuarios enviar testimonios y a los administradores gestionarlos.'
+core_version_requirement: ^10
+package: Personalizado
+dependencies:
+  - drupal:node
+  - drupal:field

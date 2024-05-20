@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * @file
+ * Instalador del módulo testimonios_usuarios.
+ */
+
+/**
+ * Implementa hook_install().
+ */
+function testimonios_usuarios_install() {
+  // Crear la tabla 'testimonio' si no existe.
+  \Drupal::database()->schema()->createTable('testimonio', [
+    'description' => 'Almacena testimonios de usuarios.',
+    'fields' => [
+      'id' => [
+        'description' => 'Clave primaria: ID único del testimonio.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'uid' => [
+        'description' => 'El ID de usuario del autor del testimonio.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'testimonio' => [
+        'description' => 'El texto del testimonio.',
+        'type' => 'text',
+        'not null' => TRUE,
+      ],
+      'created' => [
+        'description' => 'Marca de tiempo cuando se creó el testimonio.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ]);
+}
+
+/**
+ * Implementa hook_uninstall().
+ */
+function testimonios_usuarios_uninstall() {
+  // Eliminar la tabla 'testimonio' al desinstalar el módulo.
+  \Drupal::database()->schema()->dropTable('testimonio');
+}
+
+/**
+ * Implementa hook_schema().
+ */
+function testimonios_usuarios_schema() {
+  $schema['testimonio'] = [
+    'description' => 'Almacena testimonios de usuarios.',
+    'fields' => [
+      'id' => [
+        'description' => 'Clave primaria: ID único del testimonio.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'uid' => [
+        'description' => 'El ID de usuario del autor del testimonio.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'testimonio' => [
+        'description' => 'El texto del testimonio.',
+        'type' => 'text',
+        'not null' => TRUE,
+      ],
+      'created' => [
+        'description' => 'Marca de tiempo cuando se creó el testimonio.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

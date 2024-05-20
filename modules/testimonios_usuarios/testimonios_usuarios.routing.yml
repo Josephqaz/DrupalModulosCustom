@@ -1,0 +1,15 @@
+testimonios_usuarios.form:
+  path: '/testimonios/enviar'
+  defaults:
+    _form: '\Drupal\testimonios_usuarios\Form\TestimonialForm'
+    _title: 'Enviar Testimonio'
+  requirements:
+    _permission: 'enviar testimonios'
+
+testimonios_usuarios.admin:
+  path: '/admin/contenido/testimonios'
+  defaults:
+    _controller: '\Drupal\testimonios_usuarios\Controller\TestimonialController::adminPage'
+    _title: 'Gestionar Testimonios'
+  requirements:
+    _permission: 'administrar testimonios'

@@ -1,0 +1,9 @@
+enviar testimonios:
+  title: 'Enviar testimonios'
+  description: 'Permitir a los usuarios enviar testimonios'
+  restrict access: true
+
+administrar testimonios:
+  title: 'Administrar testimonios'
+  description: 'Permitir a los usuarios administrar testimonios'
+  restrict access: true
