@@ -34,6 +34,14 @@ class NewsletterSettingsForm extends ConfigFormBase {
       '#type' => 'textfield',
       '#title' => $this->t('MailChimp API Key'),
       '#default_value' => $config->get('mailchimp_api_key'),
+      '#required' => TRUE,
+    ];
+
+    $form['mailchimp_list_id'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('MailChimp List ID'),
+      '#default_value' => $config->get('mailchimp_list_id'),
+      '#required' => TRUE,
     ];
 
     $form['sendinblue_api_key'] = [
@@ -51,6 +59,7 @@ class NewsletterSettingsForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->config('newsletters_integration.settings')
       ->set('mailchimp_api_key', $form_state->getValue('mailchimp_api_key'))
+      ->set('mailchimp_list_id', $form_state->getValue('mailchimp_list_id'))
       ->set('sendinblue_api_key', $form_state->getValue('sendinblue_api_key'))
       ->save();
 
