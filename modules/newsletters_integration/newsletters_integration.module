@@ -14,3 +14,16 @@ function newsletters_integration_help($route_name, $route_match) {
       return '<p>' . t('Provides integration with email marketing services such as MailChimp or Sendinblue.') . '</p>';
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function newsletters_integration_theme() {
+  return [
+    'newsletter_subscription_block' => [
+      'variables' => [
+        'form' => NULL,
+      ],
+    ],
+  ];
+}

@@ -1,0 +1,4 @@
+newsletters_integration:
+  css:
+    theme:
+      css/newsletters_integration.css: {}

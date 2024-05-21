@@ -26,5 +26,12 @@ function encuestas_interactivas_theme() {
         'percentages' => [],
       ],
     ],
+    'respuestas_block' => [
+      'variables' => [
+        'encuesta_title' => NULL,
+        'result_count' => [],
+        'percentages' => [],
+      ],
+    ],
   ];
 }

@@ -7,3 +7,5 @@ dependencies:
   - drupal:system
   - drupal:block
   - drupal:config
+libraries:
+  - newsletters_integration/newsletters_integration

@@ -6,3 +6,5 @@ package: Personalizado
 dependencies:
   - drupal:node
   - drupal:field
+libraries:
+  - testimonios_usuarios/testimonios_usuarios

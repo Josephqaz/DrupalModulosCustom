@@ -1,22 +1,21 @@
 <?php
 
-namespace Drupal\newsletters_integration\Plugin\Block;
+namespace Drupal\testimonios_usuarios\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Form\FormBuilderInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 
 /**
- * Provides a 'Newsletter Subscription Block' block.
+ * Provides a 'Send Testimonial Block' block.
  *
  * @Block(
- *   id = "newsletter_subscription_block",
- *   admin_label = @Translation("Newsletter Subscription Block"),
+ *   id = "send_testimonial_block",
+ *   admin_label = @Translation("Send Testimonial Block"),
  * )
  */
-class NewsletterSubscriptionBlock extends BlockBase implements ContainerFactoryPluginInterface {
+class SendTestimonialBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * The form builder service.
@@ -26,7 +25,7 @@ class NewsletterSubscriptionBlock extends BlockBase implements ContainerFactoryP
   protected $formBuilder;
 
   /**
-   * Constructs a new NewsletterSubscriptionBlock instance.
+   * Constructs a new SendTestimonialBlock instance.
    *
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.
@@ -58,15 +57,7 @@ class NewsletterSubscriptionBlock extends BlockBase implements ContainerFactoryP
    * {@inheritdoc}
    */
   public function build() {
-    return [
-      '#theme' => 'newsletter_subscription_block',
-      '#form' => $this->formBuilder->getForm('Drupal\newsletters_integration\Form\NewsletterSubscriptionForm'),
-      '#attached' => [
-        'library' => [
-          'newsletters_integration/newsletters_integration',
-        ],
-      ],
-    ];
+    return $this->formBuilder->getForm('Drupal\testimonios_usuarios\Form\TestimonialForm');
   }
 
 }

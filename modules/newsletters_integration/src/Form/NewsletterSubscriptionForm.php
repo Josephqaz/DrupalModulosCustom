@@ -50,10 +50,13 @@ class NewsletterSubscriptionForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['#attributes']['class'][] = 'newsletter-subscription-form';
+
     $form['email'] = [
       '#type' => 'email',
       '#title' => $this->t('Email'),
       '#required' => TRUE,
+      '#attributes' => ['class' => ['newsletter-email']],
     ];
 
     $form['actions']['#type'] = 'actions';
@@ -61,6 +64,7 @@ class NewsletterSubscriptionForm extends FormBase {
       '#type' => 'submit',
       '#value' => $this->t('Subscribe'),
       '#button_type' => 'primary',
+      '#attributes' => ['class' => ['newsletter-submit']],
     ];
 
     return $form;

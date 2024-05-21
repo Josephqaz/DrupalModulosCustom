@@ -15,7 +15,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
  *   admin_label = @Translation("Display Testimonials Block"),
  * )
  */
-class TestimonialListBuilder extends BlockBase implements ContainerFactoryPluginInterface {
+class DisplayTestimonialsBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
    * The database connection.
@@ -25,7 +25,7 @@ class TestimonialListBuilder extends BlockBase implements ContainerFactoryPlugin
   protected $database;
 
   /**
-   * Constructs a new TestimonialListBuilder instance.
+   * Constructs a new DisplayTestimonialsBlock instance.
    *
    * @param array $configuration
    *   A configuration array containing information about the plugin instance.
@@ -66,23 +66,13 @@ class TestimonialListBuilder extends BlockBase implements ContainerFactoryPlugin
     $items = [];
     foreach ($results as $result) {
       $items[] = [
-        '#markup' => '<div class="testimonial-item">'
-          . '<p class="testimonial-author">' . $this->t('User @uid', ['@uid' => $result->uid]) . '</p>'
-          . '<p>' . $result->testimonio . '</p>'
-          . '<p class="testimonial-date">' . date('Y-m-d H:i:s', $result->created) . '</p>'
-          . '</div>',
+        '#markup' => '<p><strong>' . $this->t('User @uid', ['@uid' => $result->uid]) . ':</strong> ' . $result->testimonio . '<br><small>' . date('Y-m-d H:i:s', $result->created) . '</small></p>',
       ];
     }
 
     return [
       '#theme' => 'item_list',
       '#items' => $items,
-      '#attributes' => ['class' => ['testimonials-block']],
-      '#attached' => [
-        'library' => [
-          'testimonios_usuarios/testimonios_usuarios',
-        ],
-      ],
       '#empty' => $this->t('No testimonials available.'),
     ];
   }

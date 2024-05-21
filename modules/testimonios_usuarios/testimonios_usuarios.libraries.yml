@@ -1,0 +1,4 @@
+testimonios_usuarios:
+  css:
+    theme:
+      css/testimonials.css: {}
