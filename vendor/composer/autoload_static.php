@@ -114,6 +114,7 @@ class ComposerStaticInitacb35cb9188ed0c141d25c390a3f3472
         'D' => 
         array (
             'Drush\\' => 6,
+            'Drupal\\newsletters_integration\\' => 31,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\VendorHardening\\' => 39,
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
@@ -121,6 +122,7 @@ class ComposerStaticInitacb35cb9188ed0c141d25c390a3f3472
             'Drupal\\Component\\' => 17,
             'DrupalFinder\\' => 13,
             'DrupalCodeGenerator\\' => 20,
+            'DrewM\\MailChimp\\' => 16,
             'Doctrine\\Persistence\\' => 21,
             'Doctrine\\Deprecations\\' => 22,
             'Doctrine\\Common\\Lexer\\' => 22,
@@ -380,6 +382,10 @@ class ComposerStaticInitacb35cb9188ed0c141d25c390a3f3472
         array (
             0 => __DIR__ . '/..' . '/drush/drush/src',
         ),
+        'Drupal\\newsletters_integration\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules/newsletters_integration/src',
+        ),
         'Drupal\\Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core/lib/Drupal/Core',
@@ -407,6 +413,10 @@ class ComposerStaticInitacb35cb9188ed0c141d25c390a3f3472
         'DrupalCodeGenerator\\' => 
         array (
             0 => __DIR__ . '/..' . '/chi-teck/drupal-code-generator/src',
+        ),
+        'DrewM\\MailChimp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/drewm/mailchimp-api/src',
         ),
         'Doctrine\\Persistence\\' => 
         array (

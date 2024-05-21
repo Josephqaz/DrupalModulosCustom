@@ -16,6 +16,7 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "drewm/mailchimp-api": "^2.5",
         "drupal/admin_toolbar": "^3.4",
         "drupal/core-composer-scaffold": "^10.2",
         "drupal/core-project-message": "^10.2",
@@ -44,6 +45,11 @@
         },
         "sort-packages": true
     },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\newsletters_integration\\": "modules/newsletters_integration/src"
+        }
+    },
     "extra": {
         "drupal-scaffold": {
             "locations": {
@@ -69,13 +75,13 @@
             "drush/Commands/contrib/{$name}": [
                 "type:drupal-drush"
             ],
-            "modules/custom/{$name}": [
+            "modules/{$name}": [
                 "type:drupal-custom-module"
             ],
-            "profiles/custom/{$name}": [
+            "profiles/{$name}": [
                 "type:drupal-custom-profile"
             ],
-            "themes/custom/{$name}": [
+            "themes/{$name}": [
                 "type:drupal-custom-theme"
             ]
         },

@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Newsletters Integration module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function newsletters_integration_help($route_name, $route_match) {
+  switch ($route_name) {
+    case 'help.page.newsletters_integration':
+      return '<p>' . t('Provides integration with email marketing services such as MailChimp or Sendinblue.') . '</p>';
+  }
+}

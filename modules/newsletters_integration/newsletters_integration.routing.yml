@@ -1,0 +1,15 @@
+newsletters_integration.settings:
+  path: '/admin/config/system/newsletters-integration'
+  defaults:
+    _form: '\Drupal\newsletters_integration\Form\NewsletterSettingsForm'
+    _title: 'Newsletters Integration Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+newsletters_integration.subscribe:
+  path: '/newsletter/subscribe'
+  defaults:
+    _controller: '\Drupal\newsletters_integration\Controller\NewsletterController::subscribe'
+    _title: 'Subscribe to Newsletter'
+  requirements:
+    _permission: 'access content'

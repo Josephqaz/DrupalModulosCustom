@@ -1,0 +1,9 @@
+name: 'Newsletters Integration'
+type: module
+description: 'Facilita la integración de boletines de noticias con servicios de correo electrónico como MailChimp o Sendinblue.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:system
+  - drupal:block
+  - drupal:config
