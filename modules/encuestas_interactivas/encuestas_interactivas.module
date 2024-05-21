@@ -17,14 +17,14 @@ function encuestas_interactivas_form_alter(array &$form, \Drupal\Core\Form\FormS
 /**
  * Implements hook_theme().
  */
-function encuestas_interactivas_theme($existing, $type, $theme, $path) {
+function encuestas_interactivas_theme() {
   return [
     'encuestas_interactivas_resultados' => [
       'variables' => [
         'encuesta_title' => NULL,
         'result_count' => [],
+        'percentages' => [],
       ],
-      'template' => 'encuestas-interactivas-resultados',
     ],
   ];
 }

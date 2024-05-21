@@ -1,6 +1,11 @@
 <h2>Resultados de la Encuesta: {{ encuesta_title }}</h2>
-<ul>
+<ul class="results-list">
   {% for respuesta, count in result_count %}
-    <li>{{ respuesta }}: {{ count }} votos</li>
+    <li class="result-item">
+      <span class="result-text">{{ respuesta }}: {{ count }} votos</span>
+      <div class="progress-bar">
+        <div class="progress" style="width: {{ percentages[respuesta] }}%;"></div>
+      </div>
+    </li>
   {% endfor %}
 </ul>

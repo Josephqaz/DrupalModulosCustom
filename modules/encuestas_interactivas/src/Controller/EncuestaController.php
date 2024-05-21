@@ -72,11 +72,21 @@ class EncuestaController extends ControllerBase {
 
     // Process the results.
     $result_count = [];
+    $total_votes = 0;
     foreach ($results as $result) {
       if (!isset($result_count[$result->respuesta])) {
         $result_count[$result->respuesta] = 0;
       }
       $result_count[$result->respuesta]++;
+      $total_votes++;
+    }
+
+    // Calculate percentages.
+    $percentages = [];
+    if ($total_votes > 0) {
+      foreach ($result_count as $respuesta => $count) {
+        $percentages[$respuesta] = ($count / $total_votes) * 100;
+      }
     }
 
     // Render the template with results.
@@ -84,6 +94,8 @@ class EncuestaController extends ControllerBase {
       '#theme' => 'encuestas_interactivas_resultados',
       '#encuesta_title' => $encuesta_title,
       '#result_count' => $result_count,
+      '#percentages' => $percentages,
     ];
   }
+
 }

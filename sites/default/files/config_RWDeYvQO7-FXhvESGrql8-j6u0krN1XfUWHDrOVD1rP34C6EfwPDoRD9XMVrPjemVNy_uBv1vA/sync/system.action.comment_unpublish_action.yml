@@ -1,0 +1,13 @@
+uuid: 66bf60d8-5a41-42a0-bd23-37357fc2f9a6
+langcode: es
+status: true
+dependencies:
+  module:
+    - comment
+_core:
+  default_config_hash: tWOIjSMobEWOFZddMkNqb9JySbOVwE1diC6NRqcfLTk
+id: comment_unpublish_action
+label: 'Retirar comentario de la publicación'
+type: comment
+plugin: 'entity:unpublish_action:comment'
+configuration: {  }
