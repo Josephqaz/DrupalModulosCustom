@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - testimonios_usuarios
+id: testimonio
+label: 'Testimonio'
+label_singular: 'Testimonio'
+label_plural: 'Testimonios'
+label_count:
+  one: '1 testimonio'
+  other: '@count testimonios'
+entity_keys:
+  id: id
+  label: testimonio
+  uuid: uuid
+  bundle: type
+  revision: vid
+  status: status
+  created: created
+  changed: changed
+links:
+  canonical: '/testimonio/{testimonio}'
+  collection: '/admin/content/testimonios'
+  add-form: '/testimonio/add'
+  edit-form: '/testimonio/{testimonio}/edit'
+  delete-form: '/testimonio/{testimonio}/delete'
+  version-history: '/testimonio/{testimonio}/revisions'
+  revision: '/testimonio/{testimonio}/revisions/{revision_id}/view'
+  revision_revert: '/testimonio/{testimonio}/revisions/{revision_id}/revert'
+  revision_delete: '/testimonio/{testimonio}/revisions/{revision_id}/delete'
+  multiple_delete_confirm: '/admin/content/testimonios/delete'
+  add-page: '/testimonio/add'
+admin_permission: 'administer testimonio entities'

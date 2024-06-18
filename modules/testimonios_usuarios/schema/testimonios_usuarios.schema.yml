@@ -1,0 +1,23 @@
+testimonio:
+  type: entity
+  label: 'Testimonio'
+  mapping:
+    id:
+      type: integer
+      unsigned: true
+      not null: true
+      description: 'The primary identifier for the testimonio entity.'
+    user_id:
+      type: integer
+      unsigned: true
+      not null: true
+      description: 'The user ID of the person giving the testimonial.'
+    testimonio:
+      type: text_long
+      not null: true
+      description: 'The testimonial message.'
+    created:
+      type: int
+      unsigned: true
+      not null: true
+      description: 'The time that the testimonio was created.'
